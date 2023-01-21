@@ -1,7 +1,10 @@
 import dash
 from dash import html, dcc, callback, Input, Output
+import dash_bootstrap_components as dbc
+from pages.sidebar import sidebar
 
-dash.register_page(__name__)
+
+dash.register_page(__name__, path="/test", title="Part 1/x tutorial", name="Part one")
 
 layout = html.Div(children=[
     html.H1(children='This is our Analytics page'),
@@ -13,6 +16,10 @@ layout = html.Div(children=[
     ]),
 	html.Br(),
     html.Div(id='analytics-output'),
+
+    dbc.Row(
+        [dbc.Col(sidebar(), width=2), dbc.Col(html.Div("Topics Home Page"), width=10)]
+    )
 ])
 
 
