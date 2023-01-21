@@ -17,8 +17,23 @@ app.layout = html.Div([
         ]
     ),
 
-	dash.page_container
+	dash.page_container,
+
+    html.Div(
+        [
+            html.Div(
+                dcc.Link(
+                    f"{page['name']}", href=page["relative_path"]
+                )
+            )
+            for page in dash.page_registry.values()
+        ]
+    ),
+
 ])
 
 if __name__ == '__main__':
-	app.run_server(debug=True)
+    for page in dash.page_registry.values():
+        print(page["name"], page["path"], page["relative_path"])
+
+    app.run_server(debug=True)
