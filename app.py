@@ -24,7 +24,7 @@ app.layout = html.Div(children=[
         Dash: A web application framework for your data.
     '''),
 
-    html.H1("This is a test!")
+    html.H1("This is a test!"),
 
     dcc.Graph(
         id='example-graph',
